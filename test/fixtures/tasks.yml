@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  status_id: 1
+  due_date: 2012-08-09 21:43:40
+  project_id: 1
+  notes: MyText
+  priority_id: 1
+  browser_version: MyString
+
+two:
+  name: MyString
+  status_id: 1
+  due_date: 2012-08-09 21:43:40
+  project_id: 1
+  notes: MyText
+  priority_id: 1
+  browser_version: MyString

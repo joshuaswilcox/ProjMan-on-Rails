@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :tasks, :through => :user_task
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

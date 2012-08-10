@@ -1,4 +1,12 @@
 ProjManRails::Application.routes.draw do
+  resources :priorities
+
+  resources :tasks
+
+  resources :projects
+
+  resources :groups
+
   authenticated :user do
     root :to => 'home#index'
   end
