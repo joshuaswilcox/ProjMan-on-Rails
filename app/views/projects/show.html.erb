@@ -39,5 +39,6 @@
 	<div class="form-actions">
 		<%= link_to 'All Tasks', project_tasks_url(@project), :class => 'btn btn-primary btn-large' %>
 		<%= link_to 'Add Task', new_project_task_path(@project), :class => 'btn btn-success btn-large' %>
+		<%= link_to 'My Tasks', {:action => 'my_tasks'}, :class => 'btn btn-large' %>
 	</div>
 </div>

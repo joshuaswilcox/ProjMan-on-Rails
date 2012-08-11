@@ -10,9 +10,10 @@
 <% @projects.each do |project| %>
   <tr>
     <td><%= project.name %></td>
-    <td><%= project.due_date %></td>
-    <td><%= link_to 'Show', project, :class => 'btn btn-primary' %>
+    <td><%= project.due_date.to_date %></td>
+    <td><%= link_to 'View', project, :class => 'btn btn-primary' %>
 		<%= link_to 'Edit', edit_project_path(project), :class => 'btn' %>
+		<%= link_to 'Delete', {'action' => 'delete', :id => project.id}, :class => 'btn btn-danger' %>
   </tr>
 <% end %>
 </table>

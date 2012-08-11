@@ -14,3 +14,4 @@ gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.1.0"
 gem "therubyracer", :group => :assets, :platform => :ruby
+gem "breadcrumbs_on_rails"

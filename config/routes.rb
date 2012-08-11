@@ -6,6 +6,8 @@ ProjManRails::Application.routes.draw do
   resources :projects do
     resources :tasks
   end
+  match 'projects/delete/:id' => 'projects#delete'
+  match 'projects/:id/my_tasks' => 'projects#my_tasks'
   #resources :tasks
 
   resources :groups

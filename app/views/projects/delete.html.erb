@@ -1,0 +1,18 @@
+<h2>Are you sure you want to delete the project <%= @project.name %>?</h2>
+<p>This will also delete all tasks related to the project <%= @project.name %> which are listed below. <strong>This cannot be undone!</strong></p>
+<div class="form-actions">
+	<%= link_to 'Yes I am sure', @project, :class => 'btn btn-danger', :method => 'delete', :data => {:confirm => 'One final check. Are you sure you want to delete this project?'} %>
+	<%= link_to 'No, get me out of here', project_path, :class => 'btn btn-info' %>
+</div>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.status.name %></td>
+  </tr>
+<% end %>
+</table>

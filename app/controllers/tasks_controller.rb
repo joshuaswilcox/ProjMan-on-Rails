@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order(params[:sort])
+    @tasks = Task.order(params[:sort]).where(:project_id => params[:project_id])
     @project = Project.find(params[:project_id])
 
     respond_to do |format|
@@ -80,10 +80,11 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
+    @project = Project.find(params[:project_id])
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to project_tasks_url(@project) }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,10 @@
 class ProjectsController < ApplicationController
+	
+
   # GET /projects
   # GET /projects.json
   def index
+  	
     @projects = Project.all
 
     respond_to do |format|
@@ -9,10 +12,16 @@ class ProjectsController < ApplicationController
       format.json { render json: @projects }
     end
   end
+  
+  def my_tasks
+    @project = Project.find(params[:id])
+    @tasks = Task.where(:project_id => params[:id], :user_id => current_user)
+  end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+  	
     @project = Project.find(params[:id])
     @tasks = Task.where(:project_id => params[:id], :status_id => 1 ).limit(5)
 
@@ -68,6 +77,11 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def delete
+  	  @project = Project.find(params[:id])
+  	  @tasks = Task.where(:project_id => params[:id], :status_id => 1 )
   end
 
   # DELETE /projects/1
