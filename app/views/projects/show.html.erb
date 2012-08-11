@@ -3,8 +3,41 @@
 <p>
   <b>Name:</b>
   <%= @project.name %>
+  <p><%= @project.body %></p>
 </p>
 
+<%= link_to 'Edit', edit_project_path(@project), :class => 'btn' %>
+<%= #link_to 'Back', projects_path, :class => 'btn' 
+%>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="project_tasks">
+<hr />
+	<h3>Recent Open Tasks</h3>
+	<br />
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th width="25%">Name</th>
+				<th width="10%">Status</th>
+				<th width="15%">Priority</th>
+				<th width="25%">Due date</th>
+				<th width="25%">Assigned to</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @tasks.each do |t| %>
+			<tr>
+				<td><%= link_to t.name, project_task_path(@project, t)  %></td>
+				<td><%= t.status.name %></td>
+				<td><%= t.priority.name %></td>
+				<td><%= t.due_date.to_date %></td>
+				<td><%= t.user.name %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+	<div class="form-actions">
+		<%= link_to 'All Tasks', project_tasks_url(@project), :class => 'btn btn-primary btn-large' %>
+		<%= link_to 'Add Task', new_project_task_path(@project), :class => 'btn btn-success btn-large' %>
+	</div>
+</div>

@@ -4,10 +4,9 @@
   <b>Name:</b>
   <%= @task.name %>
 </p>
-
 <p>
   <b>Status:</b>
-  <%= @task.status_id %>
+  <%= @task.status.name %>
 </p>
 
 <p>
@@ -17,7 +16,7 @@
 
 <p>
   <b>Project:</b>
-  <%= @task.project_id %>
+  <%= @task.project.name %>
 </p>
 
 <p>
@@ -27,14 +26,18 @@
 
 <p>
   <b>Priority:</b>
-  <%= @task.priority_id %>
+  <%= @task.priority.name %>
 </p>
 
 <p>
   <b>Browser version:</b>
   <%= @task.browser_version %>
 </p>
+<p>
+  <b>Assigned to:</b>
+  <%= @task.user.name %>
+</p>
 
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_project_task_path(@task.project_id, @task.id) %> |
+<%= link_to 'Back', project_path(@task.project_id) %>

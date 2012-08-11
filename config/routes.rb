@@ -1,9 +1,12 @@
 ProjManRails::Application.routes.draw do
+  resources :statuses
+
   resources :priorities
-
-  resources :tasks
-
-  resources :projects
+  
+  resources :projects do
+    resources :tasks
+  end
+  #resources :tasks
 
   resources :groups
 
@@ -13,4 +16,5 @@ ProjManRails::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users, :only => [:show, :index]
+  
 end

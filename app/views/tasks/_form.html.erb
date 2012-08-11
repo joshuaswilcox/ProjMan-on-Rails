@@ -1,14 +1,15 @@
-<%= simple_form_for(@task) do |f| %>
+<%= simple_form_for [@project, @task] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :status_id %>
+    <%= f.input :name, :placeholder => 'Task name' %>
+    <%= f.association :status, :include_blank => false  %>
     <%= f.input :due_date %>
-    <%= f.input :project_id %>
+    <%= f.input :project_id, :as => 'hidden'  %>
     <%= f.input :notes %>
-    <%= f.input :priority_id %>
+    <%= f.association :priority, :include_blank => false  %>
     <%= f.input :browser_version %>
+    <%= f.association :user, :include_blank => false %>
   </div>
 
   <div class="form-actions">

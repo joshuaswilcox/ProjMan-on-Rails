@@ -1,4 +1,15 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div class="row">
+	<div class="span4 offset2">
+	<h3>Recent Projects</h3>
+	<% @projects.each do |project| %>
+		<p>Project: <%=link_to project.name, project %></p>
+	<% end %>
+	<%= link_to 'View All', projects_path %>
+	</div>
+	<div class="span4 offset2">
+	<h3>Recent Tasks</h3>
+	<% @tasks.each do |task| %>
+		<p>Tasks: <%=link_to task.name, project_task_path(task.project_id, task) %></p>
+	<% end %>
+	</div>
+</div>

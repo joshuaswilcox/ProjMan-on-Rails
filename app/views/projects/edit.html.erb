@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Delete', @project, :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure? This will delete all tasks associated with this project as well.' } %>
 <%= link_to 'Show', @project %> |
 <%= link_to 'Back', projects_path %>
