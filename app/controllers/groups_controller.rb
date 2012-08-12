@@ -31,6 +31,12 @@ class GroupsController < ApplicationController
       format.json { render json: @group }
     end
   end
+  
+#   def join_group
+#     @user_id = current_user.id
+#     @group_id = params[:id]
+#     Group.create(:user_ids => @user_id)
+#   end
 
   # GET /groups/1/edit
   def edit

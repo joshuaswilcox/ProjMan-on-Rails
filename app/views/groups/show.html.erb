@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
+<p><b>Name:</b>
+<%= @group.name %></p>
+<p><b>Users in group:</b></p>
+<ul>
+<% @group.users.each do |x| %>
+	<li><%= link_to x.name, user_path(x.id) %></li>
+<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

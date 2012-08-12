@@ -1,3 +1,9 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<p>Groups:</p>
+<ul>
+<% @user.groups.each do |g| %>
+	<li><%= link_to g.name, group_path(g.id) %></li>
+<% end %>
+</ul>

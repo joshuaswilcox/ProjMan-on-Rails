@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-  <p><%= @project.body %></p>
-</p>
+<h2><%= @project.name %></h2>
+<p><%= @project.body %></p>
 
 <%= link_to 'Edit', edit_project_path(@project), :class => 'btn' %>
 <%= #link_to 'Back', projects_path, :class => 'btn' 

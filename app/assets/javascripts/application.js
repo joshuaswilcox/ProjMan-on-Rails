@@ -17,4 +17,8 @@
 
 $(function() {
 	//$( ".date_picker" ).datepicker();
+	function removeAlert() {
+  	$('.alert').fadeOut(2000);
+  }
+  removeAlert();
 });
