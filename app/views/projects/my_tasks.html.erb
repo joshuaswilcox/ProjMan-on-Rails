@@ -17,7 +17,7 @@
   </tr>
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.name %></td>
+    <td><%= link_to task.name, project_task_path(@project, task) %></td>
     <td><%= task.status.name %></td>
     <td><%= task.user.name %></td>
     <td><%= task.due_date.to_date %></td>
@@ -25,8 +25,10 @@
     <td><%= task.priority.name %></td>
     <td><%= task.browser_version %></td>
     <td><%= link_to 'Show', project_task_path(@project, task) %> | 
-		<%= link_to 'Edit', edit_project_task_path(@project, task) %> | 
-    <%= link_to 'Destroy', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<%= link_to 'Edit', edit_project_task_path(@project, task) %>
+    <%= 
+    	#link_to 'Destroy', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } 
+    %></td>
   </tr>
 <% end %>
 </table>

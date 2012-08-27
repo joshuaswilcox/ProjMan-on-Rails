@@ -24,11 +24,31 @@
     <div id="main" role="main">
       <div class="container">
         <div class="content">
-           <div class="row">           	
-            <div class="span12">
+           <div class="row">
+           <% if current_user.has_role? :admin %>           	
+            <div class="span9">
               <%= render 'layouts/messages' %>
               <%= yield %>
             </div>
+            <div class="span2 well">
+            	<h3>Admin Actions</h3>
+				<ul class="nav nav-list">
+					<li class="nav-header">Statuses</li>
+					<li><%= link_to 'New', {:controller => :statuses, :action => 'new'} %></li>
+					<li><%= link_to 'List', {:controller => :statuses} %></li>
+					<li class="nav-header">Priorities</li>
+					<li><%= link_to 'New', {:controller => :priorities, :action => 'new'} %></li>
+					<li><%= link_to 'List', {:controller => :priorities} %></li>
+					<li class="nav-header">Users</li>
+					<li><%= link_to 'List', {:controller => :users} %></li>
+				</ul>
+			</div>
+			<% else %>
+				<div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+			<% end %>
           </div>
           <footer>
           </footer>

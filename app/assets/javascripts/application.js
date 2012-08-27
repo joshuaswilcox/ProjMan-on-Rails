@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap
 //= require_tree .
 
-$(function() {
-	//$( ".date_picker" ).datepicker();
+jQuery(function($) {
 	function removeAlert() {
-  	$('.alert').fadeOut(2000);
+  	$('.alert').delay(2000).fadeOut(1000);
   }
   removeAlert();
 });
