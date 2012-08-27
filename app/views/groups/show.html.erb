@@ -6,6 +6,13 @@
 	<li><%= link_to x.name, user_path(x.id) %></li>
 <% end %>
 </ul>
+<p><b>Group Notes:</b></p>
+<ul>
+<% @notes.each do |n| %>
+	<li><%= link_to n.name, group_note_path(@group, n) %></li>
+<% end %>
+</ul>
+<%= link_to "New Note", new_group_note_path(@group) %>
 
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
