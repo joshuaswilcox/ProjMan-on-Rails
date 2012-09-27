@@ -2,6 +2,7 @@ ProjManRails::Application.routes.draw do
   
   resources :statuses
   resources :priorities
+  resources :admin
   resources :projects do
     resources :tasks
   end

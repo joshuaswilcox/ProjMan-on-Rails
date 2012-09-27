@@ -1,18 +1,25 @@
+<div class="offset3">
 <%= simple_form_for [@project, @task] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name, :placeholder => 'Task name' %>
     <%= f.association :status, :include_blank => false  %>
-    <%= f.input :due_date %>
+    <%= f.label :due_date %>
+    <%= f.text_field :due_date_date, :class => 'datepicker', :size => 10, :maxlength => 10 %> <%= f.text_field :due_date_time, :size => 5, :maxlength => 5 %>
     <%= f.input :project_id, :as => 'hidden'  %>
-    <%= f.input :notes %>
+    <%= f.input :notes, :input_html => { :cols => 50, :rows => 5 }%>
     <%= f.association :priority, :include_blank => false  %>
     <%= f.input :browser_version %>
     <%= f.association :user, :include_blank => false %>
   </div>
-
+</div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+	jQuery(function() {
+		jQuery('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+	});
+</script>

@@ -1,13 +1,20 @@
+<div class="offset3">
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :due_date %>
+    <%= f.label :due_date %>
+    <%= f.text_field :due_date_date, :class => 'datepicker', :size => 10, :maxlength => 10 %> <%= f.text_field :due_date_time, :size => 5, :maxlength => 5 %>
     <%= f.input :body %>
   </div>
-
+</div>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-success' %>
   </div>
 <% end %>
+<script type="text/javascript">
+	jQuery(function() {
+		jQuery('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+	});
+</script>
